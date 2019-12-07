@@ -4,13 +4,16 @@
     :columns="3">
         <sui-grid-row 
         stretched
-        class="landing-row"
+        class="center-row"
         verticalAlign="middle"> 
             <sui-grid-column />
             <sui-grid-column>
+                <sui-image 
+                centered
+                size="medium" 
+                src="/img/logo.png"/>
                 <h1 
-                is="sui-header" 
-                icon="home">
+                is="sui-header">
                     FracApp
                     <sui-header-subheader>
                         Maneja tu fraccionamiento de una menera sencilla<span>™️</span>
@@ -18,19 +21,19 @@
                 </h1>
                 <div id="nav">
                     <router-link 
-                    to="/">
-                        Hi
-                    </router-link> 
-                    |
-                    <router-link 
                     to="/login">
-                        Login
+                        Iniciar Sesión
                     </router-link> 
                     | 
                     <router-link 
                     to="/signup">
-                        Signup
+                        Registro
                     </router-link>
+                    |
+                    <router-link 
+                    to="/news">
+                        Noticias
+                    </router-link> 
                 </div>
             </sui-grid-column>
             <sui-grid-column />
@@ -46,7 +49,5 @@ export default {
 </script>
 
 <style lang="css">
-    .landing-row{
-        height: 100vh;
-    }
+    
 </style>

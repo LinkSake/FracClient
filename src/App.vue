@@ -23,6 +23,14 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #04E9D3;
+}
+
+.bad-center{
+    margin-left: 5.5rem !important;
+}
+
+.center-row{
+  height: 100vh;
 }
 </style>
