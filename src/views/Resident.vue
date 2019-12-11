@@ -154,14 +154,16 @@ export default {
         },
         putResident() {
             this.$store.dispatch(`${storeModule}/putResident`, {
-                name: this.name,
-                FLastName: this.FLastName,
-                MLastName: this.MLastName,
-                age: this.age,
-                email: this.email,
-                celphone: this.celphone,
-                sex: this.sex,
-                current: this.current
+                residents: {
+                    name: this.name,
+                    FLastName: this.FLastName,
+                    MLastName: this.MLastName,
+                    age: this.age,
+                    email: this.email,
+                    celphone: this.celphone,
+                    sex: this.sex,
+                    current: this.current
+                }
             }).then(res => {
                 if(res === true){
                     this.$router.push("/residents/list");

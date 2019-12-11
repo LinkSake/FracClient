@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="1.landing.test"
+    errors="0" failures="0" hostname="" id="" package="1.landing.test" skipped="0"
+    tests="1" time="1.148" timestamp="">
+  
+    <testcase name="Does it render the landing ok?" classname="1.landing.test" time="1.148" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

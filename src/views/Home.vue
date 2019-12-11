@@ -23,7 +23,8 @@
                 is="sui-menu-item">
                     Usuarios
                 </router-link>  
-                <router-link 
+                <router-link
+                id="visit" 
                 to="/visits"
                 is="sui-menu-item">
                     Visitas
@@ -34,6 +35,7 @@
                     Pagos
                 </router-link> 
                 <router-link 
+                id="news"
                 to="/announcements"
                 is="sui-menu-item">
                     Anuncios

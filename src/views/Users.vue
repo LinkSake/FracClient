@@ -19,13 +19,13 @@
                 </router-link>
                 <router-link 
                 to="/users"
-                is="sui-menu-item">
-                    Usuarios
-                </router-link> 
-                <router-link 
-                to="/visits"
                 is="sui-menu-item"
                 active>
+                    Usuarios
+                </router-link>  
+                <router-link 
+                to="/visits"
+                is="sui-menu-item">
                     Visitas
                 </router-link> 
                 <router-link 
@@ -40,7 +40,7 @@
                 </router-link> 
             </sui-container>
         </sui-menu>
-        <div class="visit">
+        <div class="signup">
             <sui-grid 
             :columns="3">
                 <sui-grid-row 
@@ -53,8 +53,8 @@
                         <h1 
                         color="teal"
                         is="sui-header"
-                        icon="book">
-                            Registro de visitas
+                        icon="handshake outline">
+                            ¡Únete a tu equipo!
                         </h1>
                         <sui-card
                         class="bad-center">
@@ -62,53 +62,39 @@
                                     <div>
                                         <sui-form-field>
                                             <sui-input 
-                                            v-model="licensePlate"
-                                            name="licensePlate"
-                                            placeholder="Placa" />
+                                            icon="user"
+                                            v-model="name"
+                                            placeholder="Nombre" />
                                         </sui-form-field>
                                         <sui-form-field>
                                             <sui-input 
-                                            v-model="color"
-                                            name="color"
-                                            placeholder="Color" />
+                                            icon="envelope"
+                                            v-model="email"
+                                            placeholder="Correo Electronico" />
                                         </sui-form-field>
                                         <sui-form-field>
                                             <sui-input 
-                                            v-model="year"
-                                            name="year"
-                                            placeholder="Año" />
+                                            icon="lock open"
+                                            v-model="password"
+                                            placeholder="Contraseña" />
                                         </sui-form-field>
                                         <sui-form-field>
                                             <sui-input 
-                                            v-model="brand"
-                                            name="brand"
-                                            placeholder="Marca" />
-                                        </sui-form-field>
-                                        <sui-form-field>
-                                            <sui-input 
-                                            v-model="model"
-                                            name="model"
-                                            placeholder="Modelo" />
-                                        </sui-form-field>
-                                        <sui-form-field>
-                                            <sui-input 
-                                            v-model="house"
-                                            name="house"
-                                            placeholder="# de casa" />
+                                            icon="lock"
+                                            placeholder="Confirmar contraseña" />
                                         </sui-form-field>
                                         <sui-button 
                                         fluid
                                         color="teal"
-                                        v-on:click="postVisit">
-                                            Registrar visita
+                                        v-on:click="postUser">
+                                            Registrar
                                         </sui-button>
                                     </div>
                             </sui-card-content>
                             <sui-card-content extra>
                                 <router-link 
-                                to="/visits/list"
-                                >
-                                    Ver registro
+                                to="/users/list">
+                                    Ver usuarios
                                 </router-link> 
                             </sui-card-content>
                         </sui-card>
@@ -123,33 +109,27 @@
 <script>
 
 import { mapGetters } from 'vuex';
-let storeModule = 'visits';
+let storeModule = 'session';
 
 export default {
-    name: 'visits',
+    name: 'users',
     data() {
         return {
-            licensePlate: "",
-            color: "",
-            year: "",
-            brand: "",
-            model: "",
-            house: "",
+            name: "",
+            email: "",
+            password: ""
         };
     },
     methods: {
-        postVisit() {
-            this.$store.dispatch(`${storeModule}/postVisit`, {
-            licensePlate: this.licensePlate,
-            color: this.color,
-            year: this.year,
-            brand: this.brand,
-            model: this.model,
-            house: this.house,
-            timeOfEntry: '2019-12-08T21:14:28.829Z',
+        postUser() {
+            this.$store.dispatch(`${storeModule}/postUser`, {
+            name: this.name,
+            email: this.email,
+            password: this.password,
+            role: 'user',
             }).then(res => {
                 if(res === true){
-                    this.$router.push("/visits/list");
+                    this.$router.push("/users/list");
                 } else {
                     console.log(res);
                 }
@@ -159,6 +139,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="css">
 
 </style>

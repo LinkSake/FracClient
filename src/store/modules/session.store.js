@@ -3,7 +3,7 @@ import router from "@/router";
 import axios from "axios";
 
 const state = {
-  user: null,
+  users: [],
   accessToken: localStorage.getItem("accessToken") || "",
   loggedIn: false
 };
@@ -17,12 +17,6 @@ const mutations = {
     state.loggedIn = true;
     state.accessToken = token;
   },
-  LOGOUT: state => {
-    state.accessToken = null;
-  },
-  SET_USER: (state, data) => {
-    state.user = data;
-  }
 };
 const actions = {
   tryLogin({ commit }, data) {
@@ -43,9 +37,8 @@ const actions = {
       }
     );
   },
-  getMe({ commit }) {
-    return sessionApi.getMe(result => {
-      commit("SET_USER", result.data.data);
+  postUser( { commit }, data ) {
+    return sessionApi.postUser(data, result => {
       return true;
     },
     error =>{

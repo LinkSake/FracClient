@@ -7,6 +7,9 @@ import Home from '../views/Home.vue'
 
 import Login from '../views/Login.vue'
 
+import Users from '../views/Users.vue'
+import UsersList from '../views/UsersList.vue'
+
 import Houses from '../views/Houses.vue'
 
 import News from '../views/News.vue'
@@ -83,6 +86,16 @@ const routes = [
     path: '/payments/list',
     name: 'paymentslist',
     component: PaymentsList
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: Users
+  },
+  {
+    path: '/users/list',
+    name: 'userlist',
+    component: UsersList
   },
 ]
 

@@ -125,10 +125,12 @@ export default {
         },
         putPayment() {
             this.$store.dispatch(`${storeModule}/putPayment`, {
-                amount: this.amount,
-                payment: this.payment,
-                timeOfPayment: Date.now(),
-                current: this.current
+                payments: {
+                    amount: this.amount,
+                    reason: this.reason,
+                    timeOfPayment: Date.now(),
+                    current: this.current
+                }
             }).then(res => {
                 if(res === true){
                     this.$router.push("/payments/list");

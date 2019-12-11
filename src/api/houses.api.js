@@ -10,13 +10,13 @@ export default {
     },
     putResident(params = {}, onSuccess, onError) {
       return axios
-        .put(`${config.host}/houses/${params.current}/residents`, params)
+        .put(`${config.host}/houses/${params.residents.current}/residents`, params)
         .then(onSuccess)
         .catch(onError);
     },
     putPayment(params = {}, onSuccess, onError) {
       return axios
-        .put(`${config.host}/houses/${params.current}/payments`, params)
+        .put(`${config.host}/houses/${params.payments.current}/payments`, params)
         .then(onSuccess)
         .catch(onError);
     },

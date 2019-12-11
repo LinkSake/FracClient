@@ -22,12 +22,14 @@
                                 <sui-form-field>
                                     <sui-input 
                                     icon="envelope"
+                                    name="email"
                                     v-model="email"
                                     placeholder="martin@fracapp.me" />
                                 </sui-form-field>
                                 <sui-form-field>
                                     <sui-input 
                                     icon="lock"
+                                    name="password"
                                     v-model="password"
                                     placeholder="**************" />
                                 </sui-form-field>

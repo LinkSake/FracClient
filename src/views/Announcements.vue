@@ -63,16 +63,19 @@
                                         <sui-form-field>
                                             <sui-input 
                                             v-model="title"
+                                            name="title"
                                             placeholder="¿Qué está pasando?" />
                                         </sui-form-field>
                                         <sui-form-field>
                                             <sui-input 
                                             v-model="description"
+                                            name="description"
                                             placeholder="Cuentanos más..." />
                                         </sui-form-field>
                                         <sui-form-field>
                                             <sui-input 
                                             v-model="details"
+                                            name="details"
                                             placeholder="¡Detalles!" />
                                         </sui-form-field>
                                         <sui-button 

@@ -20,12 +20,14 @@
                     </sui-header-subheader>
                 </h1>
                 <div id="nav">
-                    <router-link 
+                    <router-link
+                    id="login"
                     to="/login">
                         Iniciar Sesión
                     </router-link> 
                     | 
-                    <router-link 
+                    <router-link
+                    id="news" 
                     to="/news">
                         Noticias
                     </router-link> 

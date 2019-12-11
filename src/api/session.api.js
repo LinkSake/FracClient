@@ -8,10 +8,11 @@ export default {
       .then(onSuccess)
       .catch(onError);
   },
-  getMe(onSuccess, onError) {
+  postUser(params = {}, onSuccess, onError) {
     return axios
-      .get(`${config.host}/auth/me`)
+      .post(`${config.host}/auth/register`, params)
       .then(onSuccess)
       .catch(onError);
   },
+  
 };
