@@ -1,8 +1,7 @@
 <template>
     <div
     class="post" >
-        <sui-menu 
-        inverted>
+        <sui-menu >
             <sui-container>
                 <router-link 
                 to="/"
@@ -15,11 +14,6 @@
                     Iniciar sesión
                 </router-link> 
                 <router-link 
-                to="/signup"
-                is="sui-menu-item">
-                    Registro
-                </router-link>
-                <router-link 
                 active
                 to="/news"
                 is="sui-menu-item">
@@ -27,45 +21,41 @@
                 </router-link> 
             </sui-container>
         </sui-menu>
-        <sui-card
-        class="post-style"
-        :key="index"
-        v-for="(post, index) in news">
-            <sui-card-content>
-                <sui-card-header>{{post.title}}</sui-card-header>
-                <sui-card-meta>
-                <span>{{post.description}}</span>
-                </sui-card-meta>
-                <p>{{post.details}}</p>
-            </sui-card-content>
-        </sui-card>
+        <div v-if="getNews">
+            <sui-card
+            class="post-style"
+            :key="index"
+            v-for="(post, index) in getNews">
+                <sui-card-content>
+                    <sui-card-header>{{post.title}}</sui-card-header>
+                    <sui-card-meta>
+                    <span>{{post.description}}</span>
+                    </sui-card-meta>
+                    <p>{{post.details}}</p>
+                </sui-card-content>
+            </sui-card>
+        </div>
     </div>
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex';
+let storeModule = 'news';
+
 export default {
     name: 'news',
-    data() { 
-        return {
-            news:[
-                {
-                    title: "Carne asada",
-                    description: "En honor de Don Manuel",
-                    details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis convallis arcu, ac malesuada purus. Nulla laoreet eros vel mi imperdiet suscipit et pulvinar dui. Integer dapibus metus et metus."
-                },
-                {
-                    title: "Carne asada",
-                    description: "En honor de Don Manuel",
-                    details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis convallis arcu, ac malesuada purus. Nulla laoreet eros vel mi imperdiet suscipit et pulvinar dui. Integer dapibus metus et metus."
-                },
-                {
-                    title: "Carne asada",
-                    description: "En honor de Don Manuel",
-                    details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis convallis arcu, ac malesuada purus. Nulla laoreet eros vel mi imperdiet suscipit et pulvinar dui. Integer dapibus metus et metus."
-                },
-            ] 
-        }
-    }
+    computed: {
+        ...mapGetters(storeModule,['getNews'])
+    },
+    methods: {
+        loadNews(){
+            this.$store.dispatch(`${storeModule}/getNewsfeed`);
+        },
+    },
+    mounted(){
+        this.loadNews()
+    } 
 }
 </script>
 

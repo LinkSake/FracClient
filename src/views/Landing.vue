@@ -26,11 +26,6 @@
                     </router-link> 
                     | 
                     <router-link 
-                    to="/signup">
-                        Registro
-                    </router-link>
-                    |
-                    <router-link 
                     to="/news">
                         Noticias
                     </router-link> 
