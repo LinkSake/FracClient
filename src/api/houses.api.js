@@ -8,4 +8,10 @@ export default {
         .then(onSuccess)
         .catch(onError);
     },
+    putResident(params = {}, onSuccess, onError) {
+      return axios
+        .put(`${config.host}/houses/${params.current}/residents`, params)
+        .then(onSuccess)
+        .catch(onError);
+    },
 };

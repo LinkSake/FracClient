@@ -61,6 +61,10 @@
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex';
+let storeModule = 'houses';
+
 export default {
     name:'residentlist',
     computed: {

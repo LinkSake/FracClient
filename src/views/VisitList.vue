@@ -1,6 +1,6 @@
 <template>
     <div>
-                <sui-menu >
+        <sui-menu >
             <sui-container>
                 <router-link 
                 to="/home"
