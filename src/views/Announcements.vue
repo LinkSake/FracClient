@@ -13,7 +13,7 @@
                     Casas
                 </router-link> 
                 <router-link 
-                to="/users"
+                to="/residents"
                 is="sui-menu-item">
                     Residentes
                 </router-link> 

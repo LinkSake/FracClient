@@ -10,12 +10,13 @@
                 <router-link 
                 to="/houses"
                 is="sui-menu-item"
-                active>
+                >
                     Casas
                 </router-link> 
                 <router-link 
                 to="/residents"
-                is="sui-menu-item">
+                is="sui-menu-item"
+                active>
                     Residentes
                 </router-link> 
                 <router-link 
@@ -42,11 +43,17 @@
             v-for="(house, index) in getHouses">
                 <sui-card-content>
                     <sui-card-header>{{house.street + ' #'+house.houseNumber}}</sui-card-header>
-                    <sui-card-meta>
-                    <span>
-                        Status: {{house.status + ' | ' + 'Telefono: ' + house.telephone }}
-                    </span>
-                    </sui-card-meta>
+                    <sui-card-content>
+                        <sui-list
+                        :key="index"
+                        v-for="(resident, index) in house.residents">
+                            <sui-list-item
+                            icon="user">
+                                {{resident.name + ' ' + resident.FLastName 
+                                + ' ('+ resident.sex + ' - ' + resident.age + ')'}}
+                            </sui-list-item>
+                        </sui-list>
+                    </sui-card-content>
                 </sui-card-content>
             </sui-card>
         </div>
@@ -54,12 +61,8 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex';
-let storeModule = 'houses';
-
 export default {
-    name:'houses',
+    name:'residentlist',
     computed: {
         ...mapGetters(storeModule,['getHouses'])
     },
