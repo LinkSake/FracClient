@@ -1,11 +1,10 @@
 <template>
     <div>
-        <sui-menu >
+                <sui-menu >
             <sui-container>
                 <router-link 
                 to="/home"
-                is="sui-menu-item"
-                active>
+                is="sui-menu-item">
                     <img src="/img/logo.png" class="logo">
                 </router-link> 
                 <router-link 
@@ -20,7 +19,8 @@
                 </router-link> 
                 <router-link 
                 to="/visits"
-                is="sui-menu-item">
+                is="sui-menu-item"
+                active>
                     Visitas
                 </router-link> 
                 <router-link 
@@ -35,22 +35,41 @@
                 </router-link> 
             </sui-container>
         </sui-menu>
-        <h1 is="sui-header">¡Bienvenido!</h1>
-        <h5 is="sui-header">¿Qué harás hoy?</h5>
+        <div v-if="getVisits">
+            <sui-card
+            class="post-style"
+            :key="index"
+            v-for="(visit, index) in getVisits">
+                <sui-card-content>
+                    <sui-card-header>{{visit.licensePlate + ' (' + visit.color + ' '
+                        + visit.model + ' ' + visit.year+ ' )'}}</sui-card-header>
+                    <sui-card-meta>
+                    <span>De visita a la casa #{{visit.house}}</span>
+                    </sui-card-meta>
+                </sui-card-content>
+            </sui-card>
+        </div>
     </div>
 </template>
 
 <script>
 
 import { mapGetters } from 'vuex';
-let storeModule = 'session';
+let storeModule = 'visits';
 
 export default {
-    name: 'home',
+    name: 'visitslist',
     computed: {
+        ...mapGetters(storeModule,['getVisits'])
     },
     methods: {
-    },
+        loadVisits(){
+            this.$store.dispatch(`${storeModule}/getVisits`);
+        },
+    } ,
+    mounted(){
+        this.loadVisits()
+    }
 }
 </script>
 

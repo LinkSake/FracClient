@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <sui-menu >
+  <div>
+      <sui-menu >
             <sui-container>
                 <router-link 
                 to="/home"
-                is="sui-menu-item"
-                active>
+                is="sui-menu-item">
                     <img src="/img/logo.png" class="logo">
                 </router-link> 
                 <router-link 
                 to="/houses"
-                is="sui-menu-item">
+                is="sui-menu-item"
+                active>
                     Casas
                 </router-link> 
                 <router-link 
@@ -35,22 +35,14 @@
                 </router-link> 
             </sui-container>
         </sui-menu>
-        <h1 is="sui-header">¡Bienvenido!</h1>
-        <h5 is="sui-header">¿Qué harás hoy?</h5>
-    </div>
+
+  </div>
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex';
-let storeModule = 'session';
-
 export default {
-    name: 'home',
-    computed: {
-    },
-    methods: {
-    },
+    name:'houses'
+
 }
 </script>
 

@@ -8,8 +8,9 @@ const state = {
   loggedIn: false
 };
 const getters = {
-  getUser: state => state.user,
+  getMe: state => state.user,
   getLoggedIn: state => state.loggedIn
+  
 };
 const mutations = {
   LOG_USER(state, token) {
@@ -18,6 +19,9 @@ const mutations = {
   },
   LOGOUT: state => {
     state.accessToken = null;
+  },
+  SET_USER: (state, data) => {
+    state.user = data;
   }
 };
 const actions = {
@@ -38,6 +42,15 @@ const actions = {
         return error;
       }
     );
+  },
+  getMe({ commit }) {
+    return sessionApi.getMe(result => {
+      commit("SET_USER", result.data.data);
+      return true;
+    },
+    error =>{
+      return error;
+    });
   },
 };
 

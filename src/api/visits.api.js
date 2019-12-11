@@ -2,15 +2,15 @@ import config from "@/../config";
 import axios from "axios";
 
 export default {    
-    getNews(onSuccess, onError) {
+    getVisits(onSuccess, onError) {
       return axios
-        .get(`${config.host}/news/`)
+        .get(`${config.host}/cars/`)
         .then(onSuccess)
         .catch(onError);
     },
-    postNews(params = {}, onSuccess, onError) {
+    postVisit(params = {}, onSuccess, onError) {
       return axios
-        .post(`${config.host}/news/`, params)
+        .post(`${config.host}/cars/`, params)
         .then(onSuccess)
         .catch(onError);
     },
