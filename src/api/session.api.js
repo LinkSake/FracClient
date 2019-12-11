@@ -14,5 +14,11 @@ export default {
       .then(onSuccess)
       .catch(onError);
   },
+  getUsers(onSuccess, onError) {
+    return axios
+      .get(`${config.host}/user/`)
+      .then(onSuccess)
+      .catch(onError);
+  },
   
 };

@@ -8,14 +8,16 @@ const state = {
   loggedIn: false
 };
 const getters = {
-  getMe: state => state.user,
-  getLoggedIn: state => state.loggedIn
-  
+  getLoggedIn: state => state.loggedIn,
+  getUsers: state => state.users
 };
 const mutations = {
   LOG_USER(state, token) {
     state.loggedIn = true;
     state.accessToken = token;
+  },
+  GET_USERS(state, data) {
+    state.users = data;
   },
 };
 const actions = {
@@ -39,6 +41,15 @@ const actions = {
   },
   postUser( { commit }, data ) {
     return sessionApi.postUser(data, result => {
+      return true;
+    },
+    error =>{
+      return error;
+    });
+  },
+  getUsers({ commit }) {
+    return sessionApi.getUsers(result => {
+      commit("GET_USERS", result.data.data);
       return true;
     },
     error =>{

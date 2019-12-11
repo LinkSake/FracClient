@@ -45,19 +45,12 @@
             <sui-card
             class="post-style"
             :key="index"
-            v-for="(house, index) in getHouses">
+            v-for="(user, index) in getUsers">
                 <sui-card-content>
-                    <sui-card-header>{{house.street + ' #'+house.houseNumber}}</sui-card-header>
-                    <sui-card-content>
-                        <sui-list
-                        :key="index"
-                        v-for="(payment, index) in house.payments">
-                            <sui-list-item
-                            icon="money bill alternate outline">
-                                {{payment.reason + ' ($' + payment.amount + ') - Pagado el '+payment.timeOfPayment}}
-                            </sui-list-item>
-                        </sui-list>
-                    </sui-card-content>
+                    <sui-card-header>
+                        <sui-icon name="address card" />
+                        {{user.name + ' - ' + user.email}}
+                    </sui-card-header>
                 </sui-card-content>
             </sui-card>
         </div>
@@ -67,20 +60,20 @@
 <script>
 
 import { mapGetters } from 'vuex';
-let storeModule = 'houses';
+let storeModule = 'session';
 
 export default {
-    name:'residentlist',
+    name:'userslist',
     computed: {
-        ...mapGetters(storeModule,['getHouses'])
+        ...mapGetters(storeModule,['getUsers'])
     },
     methods: {
-        loadHouses(){
-            this.$store.dispatch(`${storeModule}/getHouses`);
+        loadUsers(){
+            this.$store.dispatch(`${storeModule}/getUsers`);
         },
     },
     mounted(){
-        this.loadHouses()
+        this.loadUsers()
     } 
 }
 </script>
