@@ -18,6 +18,9 @@ import VisitList from '../views/VisitList.vue'
 import Resident from '../views/Resident.vue'
 import ResidentList from '../views/ResidentList.vue'
 
+import Payments from '../views/Payments.vue'
+import PaymentsList from '../views/PaymentsList.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -70,6 +73,16 @@ const routes = [
     path: '/residents/list',
     name: 'residentlist',
     component: ResidentList
+  },
+  {
+    path: '/payments',
+    name: 'payments',
+    component: Payments
+  },
+  {
+    path: '/payments/list',
+    name: 'paymentslist',
+    component: PaymentsList
   },
 ]
 

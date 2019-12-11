@@ -14,4 +14,10 @@ export default {
         .then(onSuccess)
         .catch(onError);
     },
+    putPayment(params = {}, onSuccess, onError) {
+      return axios
+        .put(`${config.host}/houses/${params.current}/payments`, params)
+        .then(onSuccess)
+        .catch(onError);
+    },
 };

@@ -37,8 +37,15 @@ const actions = {
       });
     },
     putResident( { commit }, data ) {
-      console.log(data);
       return housesApi.putResident(data, result => {
+        return true;
+      },
+      error =>{
+        return error;
+      });
+    },
+    putPayment( { commit }, data ) {
+      return housesApi.putPayment(data, result => {
         return true;
       },
       error =>{
