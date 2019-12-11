@@ -16,7 +16,12 @@
                 to="/residents"
                 is="sui-menu-item">
                     Residentes
-                </router-link> 
+                </router-link>
+                <router-link 
+                to="/users"
+                is="sui-menu-item">
+                    Usuarios
+                </router-link>  
                 <router-link 
                 to="/visits"
                 is="sui-menu-item">
